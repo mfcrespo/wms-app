@@ -1,1 +1,69 @@
+/* Copyright (c) 2021 Maria Crespo
+Don't count the days, make the days count...Go Head!
+All Rights Reserved
+*/
+
 @import 'bootstrap/dist/css/bootstrap';
+
+.jumbotron {
+	background-image: asset-url('wms-app.jpg');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-top: 20px;
+	height: 600px;
+}
+
+.line {
+  height: 3px;
+  box-shadow: inset 0 12px 12px -12px rgb(112, 111, 111);
+  background-color: white;
+  border-radius: 50%;
+}
+
+.start {
+	margin-top: 300px;
+}
+
+.btn1 {
+	background-color: #0716e7;
+  border: 0px solid #0716e7;
+	border-radius: 25px;
+	color: #ffffff;
+	padding: 10px 50px;
+	margin-bottom: 20px;
+	margin-left: 40px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 20px;
+  font-weight: 600;
+}
+
+.btn2 {
+	background-color: #ffffff;
+	border: 2px solid #0716e7;
+	border-radius: 25px;
+	color: 0716e7;
+	padding: 10px 30px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+}
+
+.text1 {
+  color: white;
+}
+
+.coverindex {
+  position: relative;
+  height: 6%;
+  width: 6%;
+}
+
+#sticky-footer {
+  background-color: #737d99 !important; 
+}
