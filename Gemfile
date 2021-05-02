@@ -37,6 +37,7 @@ group :development, :test do
   gem 'rexml', '~> 3.2', '>= 3.2.5'
   gem 'rails-controller-testing'
   gem 'factory_bot_rails', '~> 6.1'
+  gem 'simplecov', '~> 0.21.2'
 end
 
 group :development do
