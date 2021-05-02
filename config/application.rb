@@ -18,5 +18,10 @@ module WmsApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    
+    #configure factory_bot 
+    config.generators do |g|
+      g.factory_bot suffix: "factory"
+    end
   end
 end

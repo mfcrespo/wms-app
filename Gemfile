@@ -36,6 +36,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rexml', '~> 3.2', '>= 3.2.5'
   gem 'rails-controller-testing'
+  gem 'factory_bot_rails', '~> 6.1'
 end
 
 group :development do
