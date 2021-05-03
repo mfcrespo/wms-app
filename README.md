@@ -1,24 +1,45 @@
-# README
+# WMS-APP (Warehouse Management System in Ruby on Rails)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![](https://github.com/mfcrespo/wms/blob/main/app/assets/images/wms-app.jpg)
 
-Things you may want to cover:
+This is a WMS-APP (Warehouse Management System in Ruby on Rails), built in Ruby on Rails 6.1.
 
-* Ruby version
+This app  is an Saas that allows to control and to manage the day-to-day operations in your warehouse.
 
-* System dependencies
+## To run this project you have to run:
 
-* Configuration
+* git clone <repo>
+* cd wms-app
+* bundle install
+* rails db:create
+* rails db:migrate
+* and run server: rails s
 
-* Database creation
+## Requirements
+* Ruby 3.0
+* Rails > 6.1
 
-* Database initialization
+## Gem
+* gem 'devise'
+* gem 'rspec-rails', '~> 5.0.0'
+* gem 'rexml', '~> 3.2', '>= 3.2.5'
+* gem 'rails-controller-testing'
+* gem 'simplecov'
+* gem 'acts_as_tenant'
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### Relational model WMS-App
 
-* Deployment instructions
+![](https://github.com/mfcrespo/wms/blob/main/app/assets/images/RM-WMS-App.png)
 
-* ...
+#### Follow me 💬
+
+| Authors | GitHub | Twitter | Linkedin |
+| :---: | :---: | :---: | :---: |
+| Maria Fernanda Crespo | [mfcrespo](https://github.com/mfcrespo) | [@mafe_crespo](https://twitter.com/mafe_crespo) | [mariafernandacrespo](https://www.linkedin.com/in/mariafernandacrespo) |
+
+### License
+*`WMS-App ` is open source and therefore free to download and use without permission.*
+
+##### MFCM
+##### May, 2021. Cali, Colombia
