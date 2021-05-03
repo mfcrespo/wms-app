@@ -1,8 +1,8 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'simplecov'
 SimpleCov.start('rails') do
-  minimum_coverage 5
-  maximum_coverage_drop 2
+  minimum_coverage 90
+  maximum_coverage_drop 5
 end
 
 require 'spec_helper'
