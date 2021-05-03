@@ -1,6 +1,6 @@
 # WMS-APP (Warehouse Management System in Ruby on Rails)
 
-![](https://github.com/mfcrespo/wms-app/blob/main/app/assets/images/wms-app.jpg)
+![](https://github.com/mfcrespo/wms-app/blob/master/app/assets/images/wms-app.jpg)
 
 This is a WMS-APP (Warehouse Management System in Ruby on Rails), built in Ruby on Rails 6.1.
 
@@ -30,7 +30,7 @@ This app  is an Saas that allows to control and to manage the day-to-day operati
 
 ### Relational model WMS-App
 
-![](https://github.com/mfcrespo/wms-app/blob/main/app/assets/images/RM-WMS-App.png)
+![](https://github.com/mfcrespo/wms-app/blob/master/app/assets/images/RM-WMS-App.png)
 
 #### Follow me 💬
 
