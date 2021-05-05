@@ -4,7 +4,7 @@
 
 FactoryBot.define do
   factory :account do
-    name { "MyString" }
-    user { nil }
+    sequence(:name) { |n| "NameAccount#{n}" }
+    #user { build(:user) }
   end
 end
