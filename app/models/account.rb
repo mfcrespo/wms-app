@@ -3,8 +3,10 @@
 # All Rights Reserved
 
 class Account < ApplicationRecord
+  has_many :guests
+  has_many :users, through: :guests
   belongs_to :user
-  has_many :guests, dependent: :destroy
+  
 
   NAME_REGEX_VALID = /\A[a-zA-Z\d\s-]+\z/
   
