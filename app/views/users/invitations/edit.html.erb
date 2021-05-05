@@ -1,0 +1,30 @@
+<h2><%= t "devise.invitations.edit.header" %></h2>
+
+<h2> <%= resource.name %> you have been invited to join the team: </h2>
+<h2> <%= get_team_name(resource.account_id) %>  </h2>
+
+<%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+  <%= f.hidden_field :invitation_token, readonly: true %>
+
+  <% if f.object.class.require_password_on_accepting %>
+    <div class="form-group">
+      <%= f.label :username, "Username" %>
+      <%= f.text_field :username, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit t("devise.invitations.edit.submit_button") %>
+  </div>
+<% end %>

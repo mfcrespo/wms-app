@@ -4,4 +4,8 @@
 
 class Guest < ApplicationRecord
   belongs_to :account
+  belongs_to :user
+
+  validates :account, presence: true, uniqueness: true
+  validates :user, presence: true
 end

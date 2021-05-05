@@ -12,14 +12,15 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+    devise_parameter_sanitizer.permit(:invite, keys: [:account_id] )
   end
 
   private
 
   def set_current_account
     return unless current_user.present?
-    current_account = current_user.account
-    ActsAsTenant.current_tenant = current_account
+    current_account_name = current_user.guest_list.first
+    ActsAsTenant.current_tenant = Account.find_by(name: current_account_name)
   end
 
 end
