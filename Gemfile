@@ -26,6 +26,10 @@ gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
 # Multitenancy system
 gem 'acts_as_tenant'
+# It adds support to Devise for sending invitations by email
+# (it requires to be authenticated) and accept the invitation
+# setting the password
+gem 'devise_invitable', '~> 2.0.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
