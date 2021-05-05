@@ -9,5 +9,5 @@ class Account < ApplicationRecord
   NAME_REGEX_VALID = /\A[a-zA-Z\d\s-]+\z/
   
   validates_presence_of :name, message: "Can't be blank"
-  validates :username, uniqueness: true, format: { with: NAME_REGEX_VALID, message: 'Name with special character arent allowed, only "-" is allowed. Can be alphanumerical.' }
+  validates :name, uniqueness: true, format: { with: NAME_REGEX_VALID, message: 'Name with special character arent allowed, only "-" is allowed. Can be alphanumerical.' }
 end

@@ -1,0 +1,15 @@
+<!-- Copyright (c) 2021 Maria Crespo
+Don't count the days, make the days count...Go Head!
+All Rights Reserved
+-->
+
+<h1> Edit Account </h1>
+
+<%= form_with url: url, model: account, method: :patch do |form| %>
+ <%= render partial: "layouts/flash", locals: {model: account} %>
+  <div class="field">
+    <%= form.label :name %><br />
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+  <%= form.submit "Update", class: "btn btn-success mt-3" %>
+<% end %>

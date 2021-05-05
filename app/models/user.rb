@@ -8,12 +8,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :account
-  has_many :guests, dependent: :destroy
-  #before_validation :set_account
+  has_one :account, dependent: :destroy
+  
+  before_validation :set_account
   before_save :sanitize_text
 
-  USERNAME_REGEX_VALID = /\A[a-zA-Z\s-]+\z/
+  USERNAME_REGEX_VALID = /\A[a-zA-Z\d\s-]+\z/
 
   validates_presence_of :username,:email, message: "Can't be blank"
   validates :username, uniqueness: true, format: { with: USERNAME_REGEX_VALID, message: 'Username with special character arent allowed, only "-" is allowed' }                     
@@ -24,10 +24,10 @@ class User < ApplicationRecord
     self.email = email.downcase
   end
 
-  #private
+  private
 
-  #def set_account
-  #  self.build_account
-  #end
+  def set_account
+    self.build_account(name: username)
+  end
 
 end

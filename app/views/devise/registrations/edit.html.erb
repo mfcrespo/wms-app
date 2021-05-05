@@ -1,7 +1,19 @@
+<!-- Copyright (c) 2021 Maria Crespo
+Don't count the days, make the days count...Go Head!
+All Rights Reserved
+-->
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
+<%= render partial: "accounts/form", locals: { url: account_path, account: @user.account } %><!-- Include account update field in user (admin)-->
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
