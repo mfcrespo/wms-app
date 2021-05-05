@@ -16,7 +16,7 @@ class User < ApplicationRecord
   USERNAME_REGEX_VALID = /\A[a-zA-Z\d\s-]+\z/
 
   validates_presence_of :username,:email, message: "Can't be blank"
-  validates :username, uniqueness: true, format: { with: USERNAME_REGEX_VALID, message: 'Username with special character arent allowed, only "-" is allowed' }                     
+  validates :username, uniqueness: { message: "has already been taken" }, format: { with: USERNAME_REGEX_VALID, message: 'Username with special character arent allowed, only "-" is allowed' }                     
   validates :email, email: true, uniqueness: true, length: {maximum:100}
 
   def sanitize_text

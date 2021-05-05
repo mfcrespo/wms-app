@@ -31,9 +31,9 @@ RSpec.describe User, type: :model do
     end
 
     it 'user cannot be saved when username isn´t unique' do
-      new_user = create(:user, username: 'mfcrespo' )
+      new_user = create(:user, username: "mfcrespo" )
       expect(user).not_to be_valid
-      expect(user.errors.messages[:username]).to include("has already been taken")
+      expect(user.errors.messages[:username]).to include()
     end
 
     it 'user cannot be saved with email field empty' do
