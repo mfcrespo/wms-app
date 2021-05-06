@@ -4,14 +4,14 @@
 
 module ReturnsHelper
 
-  def use_item_form(item)
+  def use_form(item)
     form_with url: uses_path, method: :post do |form|
       concat form.hidden_field(:item_id, value: item.id)
       concat form.submit("Use item", class: "form-inline btn2")
     end
   end
 
-  def return_item_form(item)
+  def return_form(item)
     link_to "Return item", use_path(item), class: "form-inline btn1", method: :delete
   end
 end

@@ -19,6 +19,7 @@ class User < ApplicationRecord
   before_save :sanitize_text
   
   attr_accessor :invitation_instructions
+  attr_accessor :account_name
   
   before_validation :set_account
   
@@ -69,6 +70,6 @@ class User < ApplicationRecord
   private
 
   def set_account
-    self.build_account(name: username) if id.nil?
+    self.build_account(name: account_name) if id.nil?
   end
 end

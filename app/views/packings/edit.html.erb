@@ -8,7 +8,7 @@ All Rights Reserved
   <%= render partial: "/layouts/flash", locals: {model: @item} %>
   <div class="field">
     <%= form.label :box %>
-    <%= form.select :box, get_available_boxes(@item), :include_blank => true %>
+    <%= form.select :box, boxes_available(@item), :include_blank => true %>
   </div>
   <div class="field">
   <%= form.submit "Move", class: "btn1" %>
