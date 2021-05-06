@@ -5,6 +5,6 @@
 module ItemsHelper
 
   def boxes_available(item)
-    Box.all.map {|box| box.boxname}.select {|x| x != item.box.name}
+    Box.all.map {|box| box.boxname}.select {|x| x != item.box.boxname}
   end
 end

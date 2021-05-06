@@ -29,7 +29,7 @@ This app  is an Saas that allows to control and to manage the day-to-day operati
 * gem 'acts_as_tenant'
 * gem 'image_processing'
 * gem 'stripe'
-gem 'rqrcode'
+* gem 'rqrcode'
 
 ### Relational model WMS-App
 

@@ -10,11 +10,11 @@ All Rights Reserved
       <%= "(In use by: #{item.user.email})" unless item.user.nil? %>
     </div>
     <div class="card-body text-info">
-      <%= image_tag item.avatar.variant(resize_to_limit: [200, 200]).processed %>
+      <%= image_tag item.avatar.variant(resize_to_limit: [150, 150]).processed %>
     </div>
     <div class="card-footer border-info">
       <div class="d-flex justify-content-center ">
-        <%= link_to("Move", edit_move_path(item), class: "form-inline btn2")%>
+        <%= link_to("Move", edit_packing_path(item), class: "form-inline btn2")%>
         <%= use_form(item) if item.user.nil? %>
         <%= return_form(item) if item.user == current_user %>
         <%= link_to("Delete", box_item_path(id: item.id, box_id: item.box.id), method: :delete,  data: {confirm: "Are you sure?"}, class: "form-inline btn2 mx-2")%>
