@@ -8,7 +8,7 @@ class ReturnsController < ApplicationController
   def create
     @item = Item.find(params[:item_id])
     unless @item.user.nil?
-      redirect_to request.referrer, alert: "This Item hasnt been returned"
+      redirect_to request.referrer, alert: "This item hasnt been returned"
       return
     end
     current_user.items.append(@item)

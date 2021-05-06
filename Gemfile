@@ -49,6 +49,8 @@ group :development, :test do
   gem 'simplecov', '~> 0.21.2'
   #QR Code gem
   gem 'rqrcode', '~> 2.0'
+  #Stripe
+  gem 'stripe'
 end
 
 group :development do

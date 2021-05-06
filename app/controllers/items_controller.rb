@@ -3,6 +3,7 @@
 # All Rights Reserved
 
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     box = Box.find(params[:box_id])
@@ -17,7 +18,12 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
 
+  def destroy
+    box = Box.find(params[:box_id])
+    @item = box.items.find(params[:id])
+    redirect_to box_path(box), notice: 'Deleted succesfully' if @item.destroy
   end
 
   def items_params
