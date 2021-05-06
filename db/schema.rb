@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_001224) do
+ActiveRecord::Schema.define(version: 2021_05_06_082629) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 2021_05_06_001224) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_accounts_on_user_id"
+  end
+
+  create_table "boxes", force: :cascade do |t|
+    t.string "boxname"
+    t.integer "account_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_boxes_on_account_id"
+    t.index ["user_id"], name: "index_boxes_on_user_id"
   end
 
   create_table "guests", force: :cascade do |t|
@@ -55,6 +65,8 @@ ActiveRecord::Schema.define(version: 2021_05_06_001224) do
   end
 
   add_foreign_key "accounts", "users"
+  add_foreign_key "boxes", "accounts"
+  add_foreign_key "boxes", "users"
   add_foreign_key "guests", "accounts"
   add_foreign_key "guests", "users"
 end
