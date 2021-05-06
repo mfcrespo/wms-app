@@ -6,6 +6,7 @@ class Users::InvitationsController < Devise::InvitationsController
 
   prepend_before_action :require_no_authentication, only: [] # Eliminates overall auth need
   prepend_before_action :require_same_user, only: [:edit, :update, :destroy] # Eliminates overall auth need
+  before_action :require_admin_user, only: [:new]
 
   # POST /resource/invitation
   def create
@@ -44,7 +45,7 @@ class Users::InvitationsController < Devise::InvitationsController
     if !update_name
       user = User.find(resource.id)
       user.invitation_token = nil
-      user.update(account_id: resource.account_id)
+      user.add_guest!(resource.account_id)
       sign_in(resource_name, resource)
       redirect_to root_path, notice: "You are now part of account of #{Account.find(resource.account_id).name}. Welcome!"
       # respond_with resource, location: after_accept_path_for(resource)
@@ -55,6 +56,7 @@ class Users::InvitationsController < Devise::InvitationsController
         flash_message = resource.active_for_authentication? ? :updated : :updated_not_active
         set_flash_message :notice, flash_message if is_flashing_format?
         resource.after_database_authentication
+        resource.add_guest!(resource.account_id)
         sign_in(resource_name, resource)
         respond_with resource, location: after_accept_path_for(resource)
       else
@@ -103,6 +105,10 @@ class Users::InvitationsController < Devise::InvitationsController
 
   def require_same_user
     sign_out :user
+  end
+
+  def require_admin_user 
+    redirect_to root_path, notice: "You arent Admin" unless current_user.is_admin?
   end
 
 end

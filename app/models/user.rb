@@ -30,7 +30,7 @@ class User < ApplicationRecord
   end
 
   def is_admin?
-    ActsAsTenant.current_tenant.id == account.id unless account.nil?
+    ActsAsTenant.current_tenant.id == account.id unless account.nil? || ActsAsTenant.current_tenant.nil?
   end
 
   def guest_list
@@ -50,8 +50,8 @@ class User < ApplicationRecord
     end
   end
 
-    def add_guest(account_id)
-    new_guest = guests.create!(account_id: account_id)
+    def add_guest!(account_id)
+    guests.create!(account_id: account_id)
   end
 
   def delete_guest(account_id)
@@ -65,7 +65,6 @@ class User < ApplicationRecord
   private
 
   def set_account
-    self.build_account(name: username) if self.account_id.nil?
-    self.add_guest(self.account_id) unless self.account_id.nil?
+    self.build_account(name: username) if id.nil?
   end
 end

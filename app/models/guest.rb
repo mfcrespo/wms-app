@@ -6,6 +6,6 @@ class Guest < ApplicationRecord
   belongs_to :account
   belongs_to :user
 
-  validates :account, presence: true, uniqueness: true
+  validates :account, presence: true, uniqueness: { scope: :user }
   validates :user, presence: true
 end

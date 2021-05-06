@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
 
   def set_current_account
     return unless current_user.present?
-    current_account_name = current_user.guest_list.first
+    current_account_name = current_user.tenant || current_user.guest_list.first
     ActsAsTenant.current_tenant = Account.find_by(name: current_account_name)
   end
 
