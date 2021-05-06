@@ -9,7 +9,7 @@ class CustomDeviseMailer < Devise::Mailer
   default template_path: 'devise/mailer' # to make sure that your mailer uses the devise views
 
   def invitation_instructions(record, token, opts={})
-    opts[:subject] = "You have been invited by #{Account.find(record.account_id).name}"
+    opts[:subject] = "You have been invited to join"
     @token = token
     devise_mail(record, record.invitation_instructions || :invitation_instructions, opts)
   end

@@ -10,9 +10,8 @@ module TenantHelper
   end
   
   def list_tenants_helper(current_user)
-    form_with url: edit_account_path,  method: :post do |form|
-      concat form.label :account
-      concat form.select :account, current_user.guest_list
+    form_with model: current_user,  url: tenants_path,  method: :put do |form|
+      concat form.select :tenant, current_user.guest_list
       concat form.submit("Change Guest", class: "btn1")
     end
   end
