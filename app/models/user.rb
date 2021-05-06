@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   has_many :guests, dependent: :destroy
   has_many :accounts, through: :guests
+  has_many :boxes
   before_save :sanitize_text
   
   attr_accessor :invitation_instructions

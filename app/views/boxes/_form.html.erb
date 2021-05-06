@@ -1,0 +1,16 @@
+<!-- Copyright (c) 2021 Maria Crespo
+Don't count the days, make the days count...Go Head!
+All Rights Reserved
+-->
+
+<div class="container">
+<%= form_with url: url, model: box do |form| %>
+  <%= render partial: "layouts/flash", locals: {model: box} %>
+
+  <div class="field">
+    <%= form.label :boxname %>
+    <%= form.text_field :boxname, class: "form-control" %>
+  </div>
+  <%= form.submit "Save", class: "btn1" %>
+<% end %>
+</div>
