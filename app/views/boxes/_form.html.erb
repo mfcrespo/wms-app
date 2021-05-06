@@ -11,6 +11,25 @@ All Rights Reserved
     <%= form.label :boxname %>
     <%= form.text_field :boxname, class: "form-control" %>
   </div>
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th></th>
+        <th class="display-4">Add Item</th>
+      </tr>
+      <tbody class="fields">
+        <%= form.fields_for :items do |builder|%>
+          <%= render partial: "item_box_fields", locals: {builder: builder} %>
+        <% end %>
+      </tbody>
+  </table>
+  <table class='table'>
+    <tbody>
+      <%= link_to_add_fields "Add Item", form, :items, class: "btn2" %> 
+    </tbody>
+  </table>
+  
   <%= form.submit "Save", class: "btn1" %>
 <% end %>
 </div>

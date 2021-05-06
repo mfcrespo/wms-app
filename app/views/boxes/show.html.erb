@@ -4,3 +4,12 @@ All Rights Reserved
 -->
 
 <h3 class="text-center">Boxes Content</h3>
+<h3 class="display-3 text-center">Items in <%= @box.boxname %></h3>
+<div class="d-flex justify-content-center">
+  <%= link_to("Add Item", new_box_item_path(@box), class: "form-inline btn btn-info mx-2")%>
+</div>
+<div class="row row-cols-1 row-cols-md-2 g-4" >
+  <% @box.items.each  do |item|%>
+    <%= render "items/element", item: item %>
+  <% end %>
+</div>

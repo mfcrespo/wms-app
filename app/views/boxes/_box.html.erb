@@ -1,0 +1,16 @@
+<!-- Copyright (c) 2021 Maria Crespo
+Don't count the days, make the days count...Go Head!
+All Rights Reserved
+-->
+
+<div class="col text-center">
+  <div class="card m-3 border-info" style="width: 20rem; height: 400px;">
+    <div class="card-header bg-transparent border-info"> <%= box.boxname %> </div>
+    <div class="card-body text-info ">
+      <h5 class="card-title"><%= link_to "Enter Box", box_path(box)%></h5>
+      <%= image_tag box.qr_code %>
+      <h5 class="card-title"><%= pluralize(box.items.count, "Item") %></h5>
+    </div>
+    <div class="card-footer bg-transparent border-info">Created: <%= time_ago_in_words(box.created_at) %> ago by <%= box.user.email %> </div>
+  </div>
+</div>

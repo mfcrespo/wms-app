@@ -9,15 +9,20 @@ class BoxesController < ApplicationController
   end
 
   def show
+    @box = Box.find(params[:id])
+    @items = @box.items
   end
 
   def new
     @box = ActsAsTenant.current_tenant.boxes.new
+    @box.items.build
   end
 
   def create
     @box = ActsAsTenant.current_tenant.boxes.new(box_params)
+    @box.user = current_user
     if @box.save
+      @box.add_qr_code(request.base_url + box_path(@box))
       redirect_to root_path, notice: 'Box succesfully created'
     else
       render :new
@@ -27,6 +32,21 @@ class BoxesController < ApplicationController
   private
 
   def box_params
-    params.require(:box).permit(:boxname)
+    params.require(:box).permit(:boxname, items_attributes: %i[id description avatar _destroy])
   end
+
+  def set_tenant
+    ActsAsTenant.without_tenant do
+      @box = Box.find(params[:id])
+    end
+    if current_user.tenant_list.include? (@box.account.name)
+      if ActsAsTenant.current_tenant != @box.account
+        current_user.update!(selected_tenant: @box.account.name)
+        set_current_tenant(@box.account)
+      end
+    else
+      redirect_to root_path, alert: 'You arent part of this account'
+    end
+  end
+
 end
