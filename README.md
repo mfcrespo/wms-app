@@ -21,13 +21,15 @@ This app  is an Saas that allows to control and to manage the day-to-day operati
 
 ## Gem
 * gem 'devise'
-* devise_invitable
+* gem 'devise_invitable'
 * gem 'rspec-rails', '~> 5.0.0'
 * gem 'rexml', '~> 3.2', '>= 3.2.5'
 * gem 'rails-controller-testing'
 * gem 'simplecov'
 * gem 'acts_as_tenant'
-
+* gem 'image_processing'
+* gem 'stripe'
+gem 'rqrcode'
 
 ### Relational model WMS-App
 
