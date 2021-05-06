@@ -13,3 +13,4 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import "bootstrap"
+import "nested-forms/nested_form"
