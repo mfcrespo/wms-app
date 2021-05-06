@@ -13,10 +13,15 @@ Rails.application.routes.draw do
     resource :tenants, only: [:update]
   end
 
-  resources :account, only: [:edit, :update], controller: "accounts"
+  resources :accounts, only: [:edit, :update]
   
-  resources :box, only: [:index, :new, :create, :show], controller: "boxes" do
-    resources :items, only: [:new, :create]
+  resources :boxes, only: [:index, :new, :create, :show] do
+    resources :items, only: [:new, :create, :destroy]
+  end
+
+  scope :item do
+    resources :moves, only: [:edit, :update]
+    resources :uses, only: [:create, :destroy]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
