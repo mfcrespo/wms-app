@@ -81,7 +81,7 @@ All Rights Reserved
     <% if user_signed_in? %>
       
       <li class="nav-item active">
-        <%= link_to "Your Account", root_path, class: "nav-link" %>
+        <%= link_to "Your Account", boxes_path, class: "nav-link" %>
       </li>
       <%= render "layouts/invite_user" if current_user.is_admin?%>
       <%= render "layouts/info_user" %>
