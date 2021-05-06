@@ -33,9 +33,9 @@ class PackingsController < ApplicationController
       @account_name = @item.box.account.name
       @account = @item.box.account
     end
-    if current_user.tenant_list.include? (@account_name)
+    if current_user.guest_list.include? (@account_name)
       if ActsAsTenant.current_tenant != @account
-        current_user.update!(selected_tenant: @account_name)
+        current_user.update!(tenant: @account_name)
         set_current_tenant(@account)
       end
     else

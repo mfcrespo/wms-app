@@ -9,7 +9,7 @@ All Rights Reserved
  <%= render partial: "layouts/flash", locals: {model: account} %>
   <div class="field">
     <%= form.label :name %><br />
-    <%= form.text_field :name, class: "form-control" %>
+    <%= form.text_field :name %>
   </div>
   <%= form.submit "Update", class: "btn2" %>
 <% end %>

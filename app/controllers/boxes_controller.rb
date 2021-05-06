@@ -3,7 +3,10 @@
 # All Rights Reserved
 
 class BoxesController < ApplicationController
-  
+  set_current_tenant_through_filter
+  before_action :authenticate_user!
+  before_action :set_tenant, only: :show
+
   def index
     @boxes = Box.all
   end
@@ -39,9 +42,9 @@ class BoxesController < ApplicationController
     ActsAsTenant.without_tenant do
       @box = Box.find(params[:id])
     end
-    if current_user.tenant_list.include? (@box.account.name)
+    if current_user.guest_list.include? (@box.account.name)
       if ActsAsTenant.current_tenant != @box.account
-        current_user.update!(selected_tenant: @box.account.name)
+        current_user.update!(tenant: @box.account.name)
         set_current_tenant(@box.account)
       end
     else
