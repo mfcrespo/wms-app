@@ -6,17 +6,57 @@ All Rights Reserved
 <div class="col-lg-4">
   <div class="card mb-5 mb-lg-0">
     <div class="card-body">
-      <h5 class="card-title text-muted text-uppercase text-center"><%= name %></h5>
-      <h6 class="card-price text-center">$<%= price %><span class="period">/month</span></h6>
+      <h5 class="card-title text-muted text-uppercase text-center">Free</h5>
+      <h6 class="card-price text-center">$0<span class="period">/month</span></h6>
       <hr>
       <ul>
-        <li><strong><%= description %></strong></li>
+        <li><strong>Max 1 Box Per Team</strong></li>
         <li></span>Unlimited users</li>
         <li></span>Unlimited storage</li>
         <li></span>QR code logic per box</li>
         <li></span>Unlimited items per box</li><br/>
         <div class="nav-item">
-          <%= link_to "Sign up", new_user_registration_path, class: "btn1" %>
+          <%= link_to 'Select', new_user_registration_path(plan: 'free'), class: 'btn1' %>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-4">
+  <div class="card mb-5 mb-lg-0">
+    <div class="card-body">
+      <h5 class="card-title text-muted text-uppercase text-center">Moderate</h5>
+      <h6 class="card-price text-center">$59<span class="period">/month</span></h6>
+      <hr>
+      <ul>
+        <li><strong>Max 5 Box Per Team</strong></li>
+        <li></span>Unlimited users</li>
+        <li></span>Unlimited storage</li>
+        <li></span>QR code logic per box</li>
+        <li></span>Unlimited items per box</li><br/>
+        <div class="nav-item">
+          <%= link_to 'Select', new_user_registration_path(plan: 'moderate'), class: 'btn1' %>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-4">
+  <div class="card mb-5 mb-lg-0">
+    <div class="card-body">
+      <h5 class="card-title text-muted text-uppercase text-center">Unlimited</h5>
+      <h6 class="card-price text-center">$99<span class="period">/month</span></h6>
+      <hr>
+      <ul>
+        <li><strong>Unlimited Boxes Per Team</strong></li>
+        <li></span>Unlimited users</li>
+        <li></span>Unlimited storage</li>
+        <li></span>QR code logic per box</li>
+        <li></span>Unlimited items per box</li><br/>
+        <div class="nav-item">
+          <%= link_to 'Select', new_user_registration_path(plan: 'unlimited'), class: 'btn1' %>
         </div>
       </ul>
     </div>

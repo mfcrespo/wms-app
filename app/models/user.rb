@@ -42,6 +42,8 @@ class User < ApplicationRecord
     ActsAsTenant.current_tenant.id == account.id unless account.nil? || ActsAsTenant.current_tenant.nil?
   end
 
+  
+
   def guest_list
     account_list = []
     account_list.append(self.account.name) unless self.account.nil?
