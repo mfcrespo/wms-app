@@ -51,6 +51,8 @@ group :development, :test do
   gem 'rqrcode', '~> 2.0'
   #Stripe
   gem 'stripe'
+  #environment variables
+  gem 'dotenv-rails'
 end
 
 group :development do
