@@ -54,6 +54,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
   def update_resource_params
-    params.require(:user).permit(:username, :email, :payment, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :payment, :password, :password_confirmation, :plan)
   end
 end
