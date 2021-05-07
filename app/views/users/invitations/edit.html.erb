@@ -1,6 +1,6 @@
 <h2><%= t "devise.invitations.edit.header" %></h2>
 
-<h2> <%= resource.name %> you have been invited to join the team: </h2>
+<h2> <%= resource.username %> you have been invited to join the team: </h2>
 <h2> <%= guest_name(resource.account_id) %>  </h2>
 
 <%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |f| %>
