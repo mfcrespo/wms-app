@@ -10,11 +10,15 @@ All Rights Reserved
       <h6 class="card-price text-center">$<%= price %><span class="period">/month</span></h6>
       <hr>
       <ul>
+        <% if %>
         <li><strong><%= description %></strong></li>
         <li></span>Unlimited users</li>
         <li></span>Unlimited storage</li>
         <li></span>QR code logic per box</li>
-        <li></span>Unlimited items per box</li>
+        <li></span>Unlimited items per box</li><br/>
+        <div class="nav-item">
+          <%= link_to "Sign up", new_user_registration_path, class: "btn1" %>
+        </div>
       </ul>
     </div>
   </div>

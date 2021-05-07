@@ -9,7 +9,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :invitable
 
   has_one :account, dependent: :destroy
+  accepts_nested_attributes_for :account
 
+  has_one :payment
+  accepts_nested_attributes_for :payment
+  
   has_many :guests, dependent: :destroy
   has_many :accounts, through: :guests
   has_many :boxes
