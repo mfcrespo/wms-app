@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_000510) do
+ActiveRecord::Schema.define(version: 2021_05_07_120851) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 2021_05_07_000510) do
     t.string "invited_by_type"
     t.integer "invitations_count", default: 0
     t.string "tenant"
+    t.string "plan"
     t.index ["account_id"], name: "index_users_on_account_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
