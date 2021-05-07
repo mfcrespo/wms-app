@@ -1,6 +1,6 @@
-# Copyright (c) 2021 Maria Crespo
-# Don't count the days, make the days count...Go Head!
-# All Rights Reserved
+/* Copyright (c) 2021 Maria Crespo
+ Don't count the days, make the days count...Go Head!
+ All Rights Reserved */
 
 $(document).on('turbolinks:load', function() {
 
