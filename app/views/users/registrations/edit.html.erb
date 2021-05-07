@@ -3,6 +3,7 @@ Don't count the days, make the days count...Go Head!
 All Rights Reserved
 -->
 
+
 <%= render partial: "accounts/form", locals: { url: account_path(resource.account), account: resource.account } unless resource.account.nil? %><!-- Include account update field in user (admin)-->
 
 <h2>Edit <%= resource_name.to_s.humanize %></h2>

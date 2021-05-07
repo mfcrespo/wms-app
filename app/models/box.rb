@@ -15,6 +15,19 @@ class Box < ApplicationRecord
   accepts_nested_attributes_for :items, reject_if: proc { |attributes| attributes['description'].blank? }, allow_destroy: true
 
   validates :boxname, presence: true, uniqueness: {scope: :account, case_sensitive: false}
+  validate :select_plan?
+
+  def select_plan?
+    if self.new_record? && (user.boxes.count > 0) && (user.plan == 'free')
+      errors.add(:base, "Free plan cannot have more than one box")
+    elsif self.new_record? && (user.boxes.count > 4) && (user.plan == 'moderate')
+      errors.add(:base, "Moderate plans cannot have more than five boxes")
+    elsif self.new_record? && (user.plan == 'No plan')
+      errors.add(:base, "You cannot created boxes.")
+    else
+      # Unlimited
+    end
+  end
 
   def add_qr_code(url)
     if !qr_code.attached?
